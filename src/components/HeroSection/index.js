@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Video from '../../images/video.mp4'
 import {HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, HeroP, HeroBtnWrapper, ArrowForward, ArrowRight} from './HeroElements'
 import {Button} from '../ButtonElement'
+import {animateScroll as scroll} from 'react-scroll'
 
 const HeroSection = () => {
     const [hover, setHover] = useState(false);
@@ -20,7 +21,7 @@ const HeroSection = () => {
                     Sign up for new account today and receive $250 in credit towards your next payment.
                 </HeroP>
                 <HeroBtnWrapper>
-                    <Button to="signup" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>
+                    <Button to="signup" onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true' smooth={true} duration={500} spy={true} exact='true' offset={-80}>
                         Get Started {hover? <ArrowForward /> : <ArrowRight />}
                     </Button>
                 </HeroBtnWrapper>
